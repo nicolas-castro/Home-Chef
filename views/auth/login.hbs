@@ -1,0 +1,31 @@
+<form action="/login" method="POST">
+
+ <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="email">Email address</label>
+      <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="password">Password</label>
+      <input name="password" type="password" class="form-control" id="password" placeholder="Password"> 
+    </div>
+  </div>
+
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+
+</form>
+<br>
+<h3>Log in with your Slack or Google account!</h3>
+<br>
+<a href="/slack-login" style="margin-right: 30px">
+<img src="../images/slack-logo.svg" style="height: 70px"  alt="" >
+</a>
+<a href="/google-login" >
+<img src="../images/google-logo.png" style="height: 70px"  alt="" >
+</a>
+<br>
+<br>
+<p>Don't have an account ? <a href="/signup">Sign Up</a></p>
+
+{{> flashMessage}}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const recipieSchema = new Schema({
+const recipeSchema = new Schema({
   title: String,
   cuisine: String,
   difficulty: String,
@@ -17,4 +17,4 @@ const recipieSchema = new Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('Recipie', recipieSchema)
+module.exports = mongoose.model('Recipe', recipeSchema)

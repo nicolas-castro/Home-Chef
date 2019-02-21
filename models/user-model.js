@@ -7,10 +7,9 @@ const userSchema = new Schema({
   password: String,
   firstName: String,
   lastName: String,
-  userName: String,
   slackId: String,
   googleId: String,
-  recipies: [{ type: Schema.Types.ObjectId, ref: 'Recipie' }]
+  recipes: [{ type: Schema.Types.ObjectId, ref: 'Recipe' }]
 }, {
   timestamps: true
 })

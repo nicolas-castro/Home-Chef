@@ -8,9 +8,9 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const Session      = require('express-session');
+const session      = require('express-session');
 const passportSetup= require('./config/passport/passport-setup');
-
+const flash        = require('connect-flash');
 
 mongoose
   .connect('mongodb://localhost/home-chef', {useNewUrlParser: true})
@@ -46,10 +46,10 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
+hbs.registerPartials(__dirname + '/views/partials');
 
 // default value for title local
-app.locals.title = 'Home Chef - Generated with IronGenerator';
+app.locals.title = 'Home Chef 🍖';
 
 app.use(session({
   secret: "our-passport-local-strategy-app",
@@ -62,5 +62,8 @@ passportSetup(app);
 const index = require('./routes/index');
 app.use('/', index);
 
+app.use('/', require('./routes/auth-routes'));
+app.use('/', require('./routes/recipie-routes'));
+app.use('/', require('./routes/user-routes'));
 
 module.exports = app;
