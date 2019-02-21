@@ -17,7 +17,7 @@ router.post('/register', (req, res, next)=>{
   const userLastName = req.body.lastName;
 
   if(userEmail==''||userPassword==''||userFirstName==''||userLastName==''){
-    req.flash('error', 'Please fill out all the fields')
+    req.flash('error', 'Please fill out all the fields !')
     res.redirect('signup',)
     return;
   }
