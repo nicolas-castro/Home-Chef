@@ -58,7 +58,7 @@ router.get('/login', (req,res,next)=>{
 })
 
 router.post('/login', passport.authenticate ('local', {
-  successRedirect: '/private',
+  successRedirect: '/recipes',
   failureRedirect: '/login',
   failureFlash: true,
   passReqToCallback: true,
@@ -75,7 +75,7 @@ router.post('/logout', (req, res, next) => {
 
 router.get('/slack-login', passport.authenticate('slack'));
 router.get('/slack/callback', passport.authenticate('slack', {
-  successReturnToOrRedirect:'/cuisine',
+  successReturnToOrRedirect:'/recipes',
   successFlash:'Slack login successful!',
   failureRedirect:'/login',
   failureMessage:'Slack login failed. Pease try to login manually. 🙏🏻'
@@ -91,7 +91,7 @@ router.get('/google-login', passport.authenticate('google', {
 }));
 
 router.get('/google/callback', passport.authenticate('google', {
-  successRedirect: '/cuisine',
+  successRedirect: '/recipes',
   failureRedirect: '/login',
 
 }))

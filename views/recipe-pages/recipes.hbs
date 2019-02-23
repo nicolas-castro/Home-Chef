@@ -1,0 +1,21 @@
+<h1>Welcome to Recipes View</h1>
+
+<ul>
+  {{#each recipesFromDB}}
+  <li> 
+    <h3>{{ this.title }} </h3> 
+    <p>{{this.cuisine}}</p>
+    <h5>Created by {{this.owner.firstName}}</h5>
+    <img src="{{this.imageUrl}}" alt="" width="300">
+    <br>
+    <br>
+    {{#if this.isOwner}}
+      <form action="/recipes/{{this._id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+      <br>
+       <a href="/recipes/{{this._id}}/edit">Edit Room Info</a>
+    {{/if}}
+  </li>
+  {{/each}}
+</ul>

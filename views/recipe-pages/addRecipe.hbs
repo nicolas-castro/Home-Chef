@@ -1,0 +1,62 @@
+<form action="/create/recipe" method="POST" enctype="multipart/form-data">
+
+   
+  <div class="form-group ">
+    <label for="title">Title</label>
+    <input name="title" type="text" class="form-control col-md-4" id="title">
+  </div>
+  <div class="form-group ">
+    <label for="cuisine">Cuisine Type</label>
+    <input name="cuisine" type="text" class="form-control col-md-4" id="cuisine">
+  </div>
+
+
+  <label for="difficulty">Difficulty</label>
+  <select name="difficulty" class="form-control form-control-sm col-md-2" id="difficulty">
+  <option>Home Chef</option>
+  <option>Amateur Chef</option>
+  <option>Master Chef</option>
+  </select> 
+  <br>
+  <label for="time">Prep Time</label>
+  <select name="time" class="form-control form-control-sm col-md-2" id="time">
+  <option>30 Minutes</option>
+  <option>30-60 Minutes</option>
+  <option>60-90 Minutes</option>
+  <option>90+ Minutes</option>
+  </select> 
+  <br>
+
+  <div class="input-group mb-3 ">
+  <input name="addIngredients" type="text" class="form-control col-md-4" placeholder="Add Ingredients" 
+          aria-label="addIngredients" aria-describedby="button-addon2" id="add-Ingredients">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button" id="add-Ingredientsbtn">Add</button>
+  </div>
+  </div>
+
+  <input type="hidden" name="ingredients" id="ingredients-Db">   
+  </input>
+
+    <ul class="list-group" id="ingredientsList">
+    </ul>
+  
+  <br>
+  
+
+  <div class="input-group mb-3">
+    <div class="custom-file">
+      <input name="imageUrl" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+      <label class="custom-file-label col-md-4" for="inputGroupFile01">Upload Image</label>
+    </div>
+  </div>
+
+  <div class="form-group" >
+    <label for="imageUrl" class="custom-file-label">Upload Image</label>
+    <input class="form-control col-md-4 custom-file" type="file" name="imageUrl" id="">
+  </div>
+    <br>
+    <br>
+    <button class="btn btn-primary btn-sm" type="submit">Add Recipe</button>
+
+</form>

@@ -2,14 +2,27 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+function capitalize (val) {
+  if (typeof val !== 'string') {
+      val = '';
+  }
+  return val.charAt(0).toUpperCase() + val.substring(1);
+}
+
 const recipeSchema = new Schema({
-  title: String,
-  cuisine: String,
+  title: {
+    type : String,
+    set: capitalize
+  },
+  cuisine: { 
+    type: String, 
+    set: capitalize
+  },
   difficulty: String,
   time: String,
   rating: String,
   imageUrl: String,
-  ingredients: String,
+  ingredients: [],
   owner: { type: Schema.Types.ObjectId, ref: 'User'},
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review'}]
   
