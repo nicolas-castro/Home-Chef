@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const ingredientList = document.getElementById('add-Ingredients').value;
 
-    document.getElementById("ingredientsList").innerHTML += `<li class='list-group-item col-md-4'>${ingredientList}</li>`;
+    document.getElementById("ingredientsList").innerHTML += `<li class='list-group-item '>${ingredientList}</li>`;
     document.getElementById("ingredients-Db").value += `${ingredientList},`;
   });
  
