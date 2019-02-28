@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById("ingredientsList").innerHTML += `<li class='list-group-item '>${ingredientList}</li>`;
     document.getElementById("ingredients-Db").value += `${ingredientList},`;
+    document.getElementById('add-Ingredients').value = '';
   });
  
 

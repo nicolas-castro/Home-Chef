@@ -1,0 +1,96 @@
+  <div class="card" style="width: 18rem;">
+    <img src="{{this.foundRecipe.imageUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ this.foundRecipe.title }} </h5>
+      <p class="card-text">{{this.foundRecipe.cuisine}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      {{#each foundRecipe.ingredients }}
+      <li class="list-group-item">{{ [] }}</li>
+      {{/each}}
+    </ul>
+  </div>
+
+
+<form action="/recipes/{{this.foundRecipe._id}}/update" method="POST" enctype="multipart/form-data">
+
+   <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">
+      <label for="title">Title</label>
+      <input name="title" placeholder="{{ this.foundRecipe.title }}" type="text" class="form-control" id="title">
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">
+      <label for="cuisine">{{this.foundRecipe.cuisine}}</label>
+      <input name="cuisine" type="text" class="form-control" id="cuisine">
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">
+    <label for="difficulty">Difficulty</label>
+    <select name="difficulty" class="form-control form-control" id="difficulty">
+    <option>Home Chef</option>
+    <option>Amateur Chef</option>
+    <option>Master Chef</option>
+    </select> 
+    </div>
+  </div>
+  <br>
+
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">    
+        <label for="time">Prep Time</label>
+        <select name="time" class="form-control form-control" id="time">
+        <option>30 Minutes</option>
+        <option>30-60 Minutes</option>
+        <option>60-90 Minutes</option>
+        <option>90+ Minutes</option>
+        </select> 
+      </div>
+  </div>
+  <br>
+
+
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">     
+      <div class="input-group mb-3 ">
+      <input name="addIngredients" type="text" class="form-control" placeholder="Add Ingredients" 
+              aria-label="addIngredients" aria-describedby="button-addon2" id="add-Ingredients">
+      <div class="input-group-append">
+        <button style="background-color: #ffda08;"class="btn btn-outline-secondary" type="button" id="add-Ingredientsbtn">Add </button>
+      </div>
+      </div>
+
+        <input type="hidden" name="ingredients" id="ingredients-Db">   
+      </input>
+    </div>
+  </div>
+
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4"> 
+      <ul class="list-group" id="ingredientsList">
+      </ul>
+    </div>
+  </div>
+  <br>
+  
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4"> 
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input name="imageUrl" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label " for="inputGroupFile01">Upload Image</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <br>
+  
+    <div class="form-row justify-content-center">
+      <button class="btn  col-md-4 shadow-lg p-2 mb-9 rounded" type="submit" style="background-color: #ffda08;">Add Recipe</button>
+    </div>
+</form>

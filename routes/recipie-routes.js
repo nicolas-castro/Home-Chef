@@ -12,13 +12,20 @@ router.get('/recipe/add', isLoggedIn, (req, res, next) => {
 
 router.post('/create/recipe', fileUploader.single('imageUrl'),(req, res, next) => {
   
-  const { title, cuisine, difficulty, time , ingredients } = req.body;
+  const { title, cuisine, difficulty, time } = req.body;
+
+  const ingr = req.body.ingredients;
+  // The / mark the beginning and end of the regular expression
+  // The , matches the comma
+  // The \s means whitespace characters (space, tab, etc) and the * means 0 or more
+  // The $ at the end signifies the end of the string
+  const ingrArr = ingr.replace(/,\s*$/, "").split(',');
   Recipe.create({
     title,
     cuisine,
     difficulty,
     time,
-    ingredients,
+    ingredients: ingrArr,
     imageUrl: req.file.secure_url,
     owner: req.user._id
   })
@@ -40,6 +47,27 @@ router.get('/recipes', (req, res, next) => {
     res.render('recipe-pages/recipes', { recipesFromDB })
   })
 })
+
+router.post('/recipes/:theRecipeId/delete', (req,res,next)=> {
+  Recipe.findByIdAndDelete(req.params.theRecipeId)
+  .then( theRecipe => {
+    res.redirect('/recipes')
+    console.log("The Deleted Recipe is : ", theRecipe)
+  })
+  .catch( err => next(err) )
+})
+
+
+
+router.get('/recipes/:theRecipeId/edit', (req,res, next)=>{
+  Recipe.findById(req.params.theRecipeId)
+  .then( foundRecipe => {
+      res.render('recipe-pages/editRecipe', { foundRecipe })
+    })
+    .catch( err => next(err) )
+  })
+
+
 
 function isLoggedIn(req, res, next){
   if(req.user){
