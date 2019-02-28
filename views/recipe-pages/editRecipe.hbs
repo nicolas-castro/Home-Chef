@@ -3,6 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ this.foundRecipe.title }} </h5>
       <p class="card-text">{{this.foundRecipe.cuisine}}</p>
+      <h3 class="card-title">Ingredients</h3>
     </div>
     <ul class="list-group list-group-flush">
       {{#each foundRecipe.ingredients }}
@@ -24,7 +25,7 @@
   <div class="form-row justify-content-center">
     <div class="form-group col-md-4">
       <label for="cuisine">{{this.foundRecipe.cuisine}}</label>
-      <input name="cuisine" type="text" class="form-control" id="cuisine">
+      <input placeholder="{{this.foundRecipe.cuisine}}" name="cuisine" type="text" class="form-control" id="cuisine">
     </div>
   </div>
 
