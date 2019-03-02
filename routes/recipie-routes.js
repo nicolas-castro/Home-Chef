@@ -67,6 +67,31 @@ router.get('/recipes/:theRecipeId/edit', (req,res, next)=>{
     .catch( err => next(err) )
   })
 
+  router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (req, res, next)=>{
+
+    const { title, cuisine, difficulty, time,  } = req.body;
+    const ingrArr = ingr.replace(/,\s*$/, "").split(',');
+
+    const updatedRecipe = {
+      title,
+      cuisine,
+      difficulty,
+      time,
+      ingredients: ingrArr,
+      owner: req.user._id
+    }
+    if(req.file){
+      updatedRecipe.imageUrl = req.file.secure_url;
+    }
+
+    Recipe.findByIdAndUpdate(req.params.theRecipeId, updatedRecipe)
+    .then( updatedRecipe => {
+      console.log("This Recipe is updated: ",{updatedRecipe})
+      res.redirect(`/recipes/${updatedRecipe._id}/edit`)
+    })
+    .catch( err => next(err) )
+  })  
+
 
 
 function isLoggedIn(req, res, next){
