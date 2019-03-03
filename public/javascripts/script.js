@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ingredientList = document.getElementById('add-Ingredients').value;
 
     document.getElementById("ingredientsList").innerHTML += `<li class='list-group-item '>${ingredientList}</li>`;
-    document.getElementById("exampleFormControlTextarea1").innerHTML += `,${ingredientList}`;
-    document.getElementById("ingredients-Db").value += `${ingredientList},`;
+    document.getElementById("ingredients-Db").value += `,${ingredientList},`;
     document.getElementById('add-Ingredients').value = '';
   });
  

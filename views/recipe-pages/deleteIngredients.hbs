@@ -1,0 +1,19 @@
+<div class="card mx-auto" style="width: 18rem; margin-top:20px;">
+    <img src="{{foundRecipe.imageUrl}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ foundRecipe.title }} </h5>
+      <p class="card-text">{{foundRecipe.cuisine}}</p>
+      <h3 class="card-title">Ingredients</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      {{#each foundRecipe.ingredients }}
+      <li class="list-group-item"> 
+        {{@index}} - {{ this }}
+        <form action="/ingredients/{{@root.foundRecipe._id}}" method="POST">
+            <input name="theIndex" id="" type="hidden" value="{{@index}}">
+            <button style="float:right" >Remove</button>
+        </form>
+        </li>      
+      {{/each}}
+    </ul>
+  </div>

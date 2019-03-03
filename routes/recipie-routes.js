@@ -67,9 +67,10 @@ router.get('/recipes/:theRecipeId/edit', (req,res, next)=>{
     .catch( err => next(err) )
   })
 
-  router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (req, res, next)=>{
+router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (req, res, next)=>{
 
     const { title, cuisine, difficulty, time,  } = req.body;
+    const ingr = req.body.ingredients;
     const ingrArr = ingr.replace(/,\s*$/, "").split(',');
 
     const updatedRecipe = {
@@ -87,11 +88,35 @@ router.get('/recipes/:theRecipeId/edit', (req,res, next)=>{
     Recipe.findByIdAndUpdate(req.params.theRecipeId, updatedRecipe)
     .then( updatedRecipe => {
       console.log("This Recipe is updated: ",{updatedRecipe})
-      res.redirect(`/recipes/${updatedRecipe._id}/edit`)
+      res.redirect(`/recipes`)
     })
     .catch( err => next(err) )
   })  
 
+  router.get('/ingredients/:id', (req,res,next) =>{
+    Recipe.findById(req.params.id)
+  .then( foundRecipe => {
+      res.render('recipe-pages/deleteIngredients', { foundRecipe })
+    })
+    .catch( err => next(err) )
+  })
+
+  router.post('/ingredients/:id', (req, res, next) => {
+    console.log('body: ', req.body)
+    Recipe.findById(req.params.id)
+    .then(recipe => {
+      const indOfDelEl = req.body.theIndex;
+      console.log('before',recipe.ingredients)
+
+      recipe.ingredients.splice(indOfDelEl, 1)
+      console.log('after:',recipe.ingredients)
+      recipe.save()
+      .then(() => {
+        res.redirect(`/ingredients/${recipe._id}`)
+      })
+      .catch()
+    })
+  })
 
 
 function isLoggedIn(req, res, next){
