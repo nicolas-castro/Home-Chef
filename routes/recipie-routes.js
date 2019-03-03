@@ -106,10 +106,10 @@ router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (re
     Recipe.findById(req.params.id)
     .then(recipe => {
       const indOfDelEl = req.body.theIndex;
-      console.log('before',recipe.ingredients)
+      // console.log('before',recipe.ingredients)
 
       recipe.ingredients.splice(indOfDelEl, 1)
-      console.log('after:',recipe.ingredients)
+      // console.log('after:',recipe.ingredients)
       recipe.save()
       .then(() => {
         res.redirect(`/ingredients/${recipe._id}`)

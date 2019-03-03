@@ -5,12 +5,44 @@ body {
 a {
   color: #00B7FF; }
 
-#exampleFormControlTextarea1 {
-  text-align: left;
-}
-
 #edit-form {
   background-size: cover;
 }
 
-/*# sourceMappingURL=style.css.map */
+.card-img-top {
+  /*height: 11vw;*/
+  object-fit: cover;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .card-img-top {
+      height: 19vw;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card-img-top {
+      height: 16vw;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card-img-top {
+      height: 20vw;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 992px) {
+  .card-img-top {
+      height: 20vw;
+  }
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}

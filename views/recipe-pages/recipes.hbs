@@ -1,21 +1,33 @@
-<h1>Welcome to Recipes View</h1>
 
-<ul>
-  {{#each recipesFromDB}}
-  <li> 
-    <h3>{{ this.title }} </h3> 
-    <p>{{this.cuisine}}</p>
-    <h5>Created by {{this.owner.firstName}}</h5>
-    <img src="{{this.imageUrl}}" alt="" width="300">
-    <br>
-    <br>
-    {{#if this.isOwner}}
-      <form action="/recipes/{{this._id}}/delete" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-      <br>
-       <a href="/recipes/{{this._id}}/edit">Edit Room Info</a>
-    {{/if}}
-  </li>
-  {{/each}}
-</ul>
+
+  
+<div class="card-deck" style="margin-top:20px">
+     {{#each recipesFromDB}}
+    <div class="card">
+      <img src="{{this.imageUrl}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ this.title }}</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+       
+        <ul class="list-group list-group-flush">
+          {{#each this.ingredients}}
+            <li class="list-group-item"> 
+              {{ [] }}
+            </li>    
+          {{/each}}  
+        </ul>
+        <br>
+        <div class="card-footer">
+          {{!-- <div class="card-body text-right"> --}}
+            {{#if this.isOwner}}
+            <a href="/recipes/{{this._id}}/edit" class="card-link" style="color: #ffda08">Edit Recipe</a>
+            {{else}}
+            {{/if}}
+          {{!-- </div> --}}
+        </div>
+      </div>
+    </div>
+      {{/each}}
+
+</div>
+    

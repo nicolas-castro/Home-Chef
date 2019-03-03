@@ -11,36 +11,50 @@
     </div>
   </div>
 
-  <div class="form-row justify-content-center">
-    <div class="form-group col-md-4">
-      <label for="cuisine">Cuisine Type</label>
-      <input name="cuisine" type="text" class="form-control" id="cuisine">
-    </div>
-  </div>
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-4">
+        <label for="cuisine">Type of Recipe</label>
+        <select name="cuisine" class="form-control form-control" id="cuisine">
+            <option>Breakfast 🍳</option>
+            <option>Brunch 😋</option>
+            <option>Dinner Date 💘</option>
+            <option>Cocktail 🍸</option>
+            <option>Quicky 😜</option>
+            <option>Dessert 🍩</option>
+        </select> 
+        </div>
+      </div>
 
-  <div class="form-row justify-content-center">
-    <div class="form-group col-md-4">
-    <label for="difficulty">Difficulty</label>
-    <select name="difficulty" class="form-control form-control" id="difficulty">
-    <option>Home Chef</option>
-    <option>Amateur Chef</option>
-    <option>Master Chef</option>
-    </select> 
-    </div>
-  </div>
-  <br>
-
-  <div class="form-row justify-content-center">
-    <div class="form-group col-md-4">    
-        <label for="time">Prep Time</label>
-        <select name="time" class="form-control form-control" id="time">
-        <option>30 Minutes</option>
-        <option>30-60 Minutes</option>
-        <option>60-90 Minutes</option>
-        <option>90+ Minutes</option>
+    <div class="form-row justify-content-center">
+      <div class="form-group col-md-4">
+        <label for="difficulty">Difficulty</label>
+        <select name="difficulty" class="form-control form-control" id="difficulty">
+          <option>Home Chef</option>
+          <option>Amateur Chef</option>
+          <option>Master Chef</option>
         </select> 
       </div>
-  </div>
+    </div>
+
+  <br>
+
+    <div class="form-row justify-content-center">
+        <div class="form-group col-md-4">    
+            <label for="time">Prep Time</label>
+            <select name="time" class="form-control form-control active" id="time">
+              {{#if foundRecipe.time}}
+            <option value="{{foundRecipe.time}}" selected="selected">{{foundRecipe.time}}</option>
+              {{else}}
+              {{/if}}
+                <option>Under 30 😉</option>
+                <option>30 Minutes</option>
+                <option>30-60 Minutes</option>
+                <option>60-90 Minutes</option>
+                <option>90+ Minutes</option>
+            </select> 
+          </div>
+    </div>
+
   <br>
 
 
