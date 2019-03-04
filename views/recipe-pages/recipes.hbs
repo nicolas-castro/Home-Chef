@@ -17,14 +17,15 @@
           {{/each}}  
         </ul>
         <br>
-        <div class="card-footer">
-          {{!-- <div class="card-body text-right"> --}}
+        {{!-- <div class="card text-right"> --}}
+          <div class="card-body ">
             {{#if this.isOwner}}
-            <a href="/recipes/{{this._id}}/edit" class="card-link" style="color: #ffda08">Edit Recipe</a>
+            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue">Edit Recipe</a>
             {{else}}
+            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue disabled">Edit Recipe</a>
             {{/if}}
-          {{!-- </div> --}}
-        </div>
+          </div>
+        {{!-- </div> --}}
       </div>
     </div>
       {{/each}}
