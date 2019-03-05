@@ -48,7 +48,7 @@ router.post('/register', (req, res, next)=>{
         res.redirect('/recipes')
       })
     })
-    .catch( err => next(err)); //closign User.create
+    .catch( err => next(err)); //closing User.create
   })
   .catch( err => next(err)); // closing User.findOne
 })
