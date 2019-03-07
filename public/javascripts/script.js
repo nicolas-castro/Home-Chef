@@ -32,5 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
+function formatDate(date) {
+  var monthNames = [
+    "January", "February", "March",
+    "April", "May", "June", "July",
+    "August", "September", "October",
+    "November", "December"
+  ];
+
+  var day = date.getDate();
+  var monthIndex = date.getMonth();
+  var year = date.getFullYear();
+
+  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+}
+
+formatDate(new Date("2019-03-02T21:12:24.240Z"))
+"2 March 2019"
+
 
 

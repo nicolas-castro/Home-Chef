@@ -40,6 +40,8 @@ router.get('/recipes', (req, res, next) => {
   Recipe.find().populate('owner')
   .then(recipesFromDB => {
     recipesFromDB.forEach(oneRecipe => {
+      oneRecipe.newDate = oneRecipe.updatedAt;
+      // console.log(oneRecipe.newDate);
       if(oneRecipe.owner.equals(req.user._id)){
         oneRecipe.isOwner = true;
       }

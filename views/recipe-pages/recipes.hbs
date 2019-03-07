@@ -19,7 +19,7 @@
         <br>
 
         
-          <div class="card-body" style="float:right">
+          <div class="card-text" style="float:right">
             {{#if this.isOwner}}
             <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue">Edit Recipe</a>
             {{else}}
@@ -28,7 +28,7 @@
           </div>
         </div>
         <br>
-    <p class="card-text text-right"><small id="date" class="text-muted">{{this.updatedAt}}</small></p>
+    <p class="card-text text-right card-footer" ><small id="date" class="text-muted">{{this.updatedAt}}</small></p>
 
       </div>
     
