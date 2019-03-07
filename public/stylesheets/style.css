@@ -51,37 +51,40 @@ a {
 .animate
 {
 	transition: all 0.1s;
-	-webkit-transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  text-decoration: none;
 }
 
 .action-button
 {
-	position: inherit;
+	/* position: inherit; */
 	padding: 8px 15px;
   margin: 0px 10px 10px 0px;
   float: left;
 	border-radius: 10px;
-	font-family: 'Pacifico', cursive;
-	font-size: 18px;
-	color: #FFF;
+	font-size: 10px;
+	color:black;
 	text-decoration: none;	
 }
 
 .blue
 {
-	background-color: #3498DB;
-	border-bottom: 5px solid #2980B9;
-	text-shadow: 0px -2px #2980B9;
+	background-color: #ffda08;
+	border-bottom: 5px solid #cfbf60;
+  text-shadow: 0px -2px #ffda08;
+  text-decoration: none;
 }
 
 .action-button:active
 {
 	transform: translate(0px,5px);
   -webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+  border-bottom: 1px solid;
+  text-decoration: none;
 }
 
 a.disabled {
   pointer-events: none;
   cursor: default;
+  text-decoration: none;
 }

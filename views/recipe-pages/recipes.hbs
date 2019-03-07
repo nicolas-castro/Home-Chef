@@ -17,10 +17,9 @@
           {{/each}}  
         </ul>
         <br>
-        <p class="card-text"><small class="text-muted">Last updated {{this.updatedAt}}</small></p>
 
-        <div class="card text-right">
-          <div class="card-body ">
+        
+          <div class="card-body" style="float:right">
             {{#if this.isOwner}}
             <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue">Edit Recipe</a>
             {{else}}
@@ -28,8 +27,11 @@
             {{/if}}
           </div>
         </div>
+        <br>
+    <p class="card-text text-right"><small id="date" class="text-muted">{{this.updatedAt}}</small></p>
+
       </div>
-    </div>
+    
       {{/each}}
 
 </div>
