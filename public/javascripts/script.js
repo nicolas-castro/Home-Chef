@@ -48,9 +48,32 @@ function formatDate(date) {
   return 'Last Edited On: ' + monthNames[monthIndex] + ', ' + day + ', ' + year;
 }
 
-const dateStamp = document.getElementById('dateEdited').value;
+function days_between(date1, date2) {
 
-document.getElementById('date').innerHTML += formatDate(new Date(`${dateStamp}`));
+  // The number of milliseconds in one day
+  var ONE_DAY = 1000 * 60 * 60 * 24;
+
+  // Convert both dates to milliseconds
+  var date1_ms = date1.getTime();
+  var date2_ms = date2.getTime();
+
+  // Calculate the difference in milliseconds
+  var difference_ms = Math.abs(date1_ms - date2_ms);
+
+  // Convert back to days and return
+  return 'Number of days: ' +  Math.round(difference_ms/ONE_DAY);
+
+}
+
+const date2 = document.getElementById('dateEdited').value;
+const date1 = new Date();
+
+document.getElementById('date').innerHTML += days_between(date1, date2);
+
+
+// const dateStamp = document.getElementById('dateEdited').value;
+
+// document.getElementById('date').innerHTML += formatDate(new Date(`${dateStamp}`));
 
 
 
