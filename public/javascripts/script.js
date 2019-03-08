@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
+
 function formatDate(date) {
   var monthNames = [
     "January", "February", "March",
@@ -44,11 +45,13 @@ function formatDate(date) {
   var monthIndex = date.getMonth();
   var year = date.getFullYear();
 
-  return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  return 'Last Edited On: ' + monthNames[monthIndex] + ', ' + day + ', ' + year;
 }
 
-formatDate(new Date("2019-03-02T21:12:24.240Z"))
-"2 March 2019"
+const dateStamp = document.getElementById('dateEdited').value;
+
+document.getElementById('date').innerHTML += formatDate(new Date(`${dateStamp}`));
+
 
 
 
