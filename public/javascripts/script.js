@@ -84,18 +84,22 @@ theDate[i].innerHTML += `Last updated ${datediff(parseDate(first), parseDate(sec
 document.addEventListener('DOMContentLoaded', () => {
 
   const likeBtn = document.getElementById('likes');
+  let likes = 0;
   likeBtn.addEventListener('click', function(e) {
    
     console.log('button was clicked');
 
-  document.getElementById('likesCount').value += 1
+    likes += 1;
 
-    $(function() {
-      $('.button-like')
-        .bind('click', function(event) {
-          $(".button-like").toggleClass("liked");
-        })
-    });
+    document.getElementById('recipeLikes').innerHTML = likes;
+    
+
+        $(function() {
+          $('.button-like')
+            .bind('click', function(event) {
+              $(".button-like").toggleClass("liked");
+            })
+        });
 
   });
  
