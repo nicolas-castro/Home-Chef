@@ -10,7 +10,10 @@
         {{@index}} - {{ this }}
         <form action="/ingredients/{{@root.foundRecipe._id}}" method="POST">
             <input name="theIndex" id="" type="hidden" value="{{@index}}">
-            <button onclick="return confirm('Are you sure you want to delete this item?');" class=" action-button shadow animate blue" style="float:right" >Remove</button>
+            <button onclick="return confirm('Are you sure you want to delete this item?');" 
+                    class=" action-button shadow animate blue" style="float:right" >
+                  Remove
+            </button>
         </form>
         </li>      
       {{/each}}

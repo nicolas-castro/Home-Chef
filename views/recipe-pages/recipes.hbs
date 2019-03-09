@@ -1,40 +1,72 @@
-
-
-  
-<div class="card-deck" style="margin-top:20px">
+<div class="row">
      {{#each recipesFromDB}}
+<li class="col-md-4 recipe-list">
+<div class="card-deck" style="margin-top:20px">
     <div class="card">
       <img src="{{this.imageUrl}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{ this.title }}</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title card-header bg-transparent">{{ this.title }}</h5>
+        <br>
+          <h6 class="card-subtitle mb-2 text-muted text-center">Ingredients:</h6>
 
-        <ul class="list-group list-group-flush">
+         <ul class="list-group list-group-flush">
+            <li class="list-group-item"> 
+              {{ this.ingredients.[0] }}
+            </li> 
+            <li class="list-group-item"> 
+              {{ this.ingredients.[1] }}
+            </li> 
+            <li class="list-group-item"> 
+              {{ this.ingredients.[2] }}
+            </li> 
+            {{#if this.ingredients.[3]}}
+            <li class="list-group-item"> 
+              {{ this.ingredients.[3] }}
+            </li> 
+            {{else}} 
+            {{/if}}  
+        </ul>
+        <br>
+
+        <br>
+        <div class="card-text" style="float:right">
+            {{#if this.isOwner}}
+            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate yellow">Edit Recipe</a>
+            {{else}}
+            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate yellow disabled">Edit Recipe</a>
+            {{/if}}
+          </div>
+        </div>
+
+        <input type="hidden" id="dateEdited" class="dateEdited" value="{{this.updatedAt}}">   
+        </input>
+
+        <p class="card-text  text-right card-footer" >
+           <a href="/recipes/{{this._id}}/view" class="card-link text-info float-left">
+            See this recipe          
+          </a>
+          <small id="date" class="text-muted date"></small>
+        </p>
+    
+    </div>
+    
+
+</div>
+</li> 
+      {{/each}}
+</div>   
+
+
+
+
+
+
+{{!-- Full Array of ingredients  --}}
+ {{!-- <ul class="list-group list-group-flush">
           {{#each this.ingredients}}
             <li class="list-group-item"> 
               {{ [] }}
             </li>    
           {{/each}}  
         </ul>
-        <br>
-
-        
-          <div class="card-text" style="float:right">
-            {{#if this.isOwner}}
-            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue">Edit Recipe</a>
-            {{else}}
-            <a href="/recipes/{{this._id}}/edit" class="action-button shadow animate blue disabled">Edit Recipe</a>
-            {{/if}}
-          </div>
-        </div>
-        <br>
-        <input type="hidden" id="dateEdited" value="{{this.updatedAt}}">   
-        </input>
-        <p class="card-text text-right card-footer" ><small id="date" class="text-muted"></small></p>
-
-      </div>
-    
-      {{/each}}
-
-</div>
-    
+        <br> --}}

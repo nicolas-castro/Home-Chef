@@ -67,7 +67,7 @@ a {
 	text-decoration: none;	
 }
 
-.blue
+.yellow
 {
 	background-color: #ffda08;
 	border-bottom: 5px solid #cfbf60;
@@ -87,4 +87,79 @@ a.disabled {
   pointer-events: none;
   cursor: default;
   text-decoration: none;
+}
+
+
+.button-like {
+  border: 2px solid #8a8a8a;
+  background-color: transparent;
+  text-decoration: none;
+  padding: 0.3rem;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
+  border-radius: 3rem;
+  color: #8a8a8a;
+  transition: all ease 0.4s;
+}
+
+.button-like span {
+  margin-left: 0.3rem;
+}
+
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.4s;
+}
+
+.button-like:focus {
+  background-color: transparent;
+}
+
+.button-like:focus .fa,
+.button-like:focus span {
+  color: #8a8a8a;
+}
+
+.button-like:hover {
+  border-color: #ffda08;
+  background-color: transparent;
+}
+
+.button-like:hover .fa,
+.button-like:hover span {
+  color: #ffda08;
+}
+
+.liked {
+  background-color: #ffda08;
+  border-color: #ffda08;
+}
+
+.liked .fa,
+.liked span {
+  color: #fefefe;
+}
+
+.liked:focus {
+  background-color: #ffda08;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+  color: #fefefe;
+}
+
+.liked:hover {
+  background-color: #ffda08;
+  border-color: #ffda08;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+  color: #fefefe;
+}
+.recipe-list {
+  list-style: none;
 }

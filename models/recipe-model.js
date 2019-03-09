@@ -22,6 +22,7 @@ const recipeSchema = new Schema({
   time: String,
   rating: String,
   imageUrl: String,
+  likes: String,
   ingredients: [],
   owner: { type: Schema.Types.ObjectId, ref: 'User'},
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review'}]

@@ -12,7 +12,7 @@ router.get('/recipe/add', isLoggedIn, (req, res, next) => {
 
 router.post('/create/recipe', fileUploader.single('imageUrl'),(req, res, next) => {
   
-  const { title, cuisine, difficulty, time } = req.body;
+  const { title, cuisine, difficulty, time, likes } = req.body;
 
   const ingr = req.body.ingredients;
   // The / mark the beginning and end of the regular expression
@@ -25,6 +25,7 @@ router.post('/create/recipe', fileUploader.single('imageUrl'),(req, res, next) =
     cuisine,
     difficulty,
     time,
+    likes,
     ingredients: ingrArr,
     imageUrl: req.file.secure_url,
     owner: req.user._id
@@ -58,8 +59,6 @@ router.post('/recipes/:theRecipeId/delete', (req,res,next)=> {
   })
   .catch( err => next(err) )
 })
-
-
 
 router.get('/recipes/:theRecipeId/edit', (req,res, next)=>{
   Recipe.findById(req.params.theRecipeId)
@@ -119,6 +118,16 @@ router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (re
       .catch()
     })
   })
+
+  router.get('/recipes/:theRecipeId/view', (req,res, next)=>{
+    Recipe.findById(req.params.theRecipeId)
+    .then( foundRecipe => {
+        res.render('recipe-pages/uniqueRecipe', { foundRecipe })
+      })
+      .catch( err => next(err) )
+    })
+
+  
 
 
 function isLoggedIn(req, res, next){
