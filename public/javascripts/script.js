@@ -88,23 +88,24 @@ document.addEventListener('DOMContentLoaded', () => {
   likeBtn.addEventListener('click', function(e) {
    
     console.log('button was clicked');
-
+    
+    $(function() {
+      $('.button-like')
+        .bind('click', function(event) {
+          $(".button-like").toggleClass("liked");
+        })
+    });
     likes += 1;
 
     document.getElementById('recipeLikes').innerHTML = likes;
-    
 
-        // $(function() {
-        //   $('.button-like')
-        //     .bind('click', function(event) {
-        //       $(".button-like").toggleClass("liked");
-        //     })
-        // });
+
+  })
 
   });
  
 
-}, false);
+
 
 
 

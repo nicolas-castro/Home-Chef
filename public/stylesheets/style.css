@@ -1,6 +1,9 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-family: 'Playfair Display SC', serif;}
+nav {
+  font-family: 'Permanent Marker', cursive;
+}
 
 a {
   color: #00B7FF; }
