@@ -121,8 +121,13 @@
       <div class="form-row justify-content-center">
         <button class="btn  col-md-4 shadow-lg p-2 mb-9 rounded" type="submit" style="background-color: #ffda08;">Edit Recipe</button>
       </div>
-    
+      <br>
     </form>
+       <form action="/recipes/{{foundRecipe._id}}/delete" method="POST" enctype="multipart/form-data">
+        <div class="form-row justify-content-center">
+          <button class="btn  col-md-4 shadow-lg p-2 mb-9 rounded text-muted" type="submit" style="background-color: #ffda08;">Delete This Recipe</button>
+        </div>
+      </form>
   </div>
 </div>
 
