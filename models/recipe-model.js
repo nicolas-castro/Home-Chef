@@ -22,7 +22,13 @@ const recipeSchema = new Schema({
   time: String,
   rating: String,
   imageUrl: String,
-  likes: String,
+  // likes: [
+  //   {
+  //   theUser: { type: Schema.Types.ObjectId, ref: 'User'},
+  //   like: Number,
+  //   }
+  // ],
+  likes: [],
   ingredients: [],
   owner: { type: Schema.Types.ObjectId, ref: 'User'},
   reviews: [{ type: Schema.Types.ObjectId, ref: 'Review'}]

@@ -81,34 +81,29 @@ theDate[i].innerHTML += `Last updated ${datediff(parseDate(first), parseDate(sec
   }
 })
 
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener('DOMContentLoaded', () => {
 
-  const likeBtn = document.getElementById('likes');
-  let likes = 0;
-  likeBtn.addEventListener('click', function(e) {
+//   const likeBtn = document.getElementById('likes');
+//   let likes = 0;
+//   likeBtn.addEventListener('click', function(e) {
    
-    console.log('button was clicked');
+//     console.log('button was clicked');
     
-    $(function() {
-      $('.button-like')
-        .bind('click', function(event) {
-          $(".button-like").toggleClass("liked");
-        })
-    });
-    likes += 1;
+//     $(function() {
+//       $('.button-like')
+//         .bind('click', function(event) {
+//           $(".button-like").toggleClass("liked");
+//         })
+//     });
+//     likes += 1;
 
-    document.getElementById('recipeLikes').innerHTML = likes;
+//     document.getElementById('recipeLikes').innerHTML = likes;
 
 
-  })
+//   })
 
-  });
+//   });
  
-
-
-
-
-
 
 
 

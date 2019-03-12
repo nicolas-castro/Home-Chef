@@ -3,6 +3,7 @@ const router  = express.Router();
 
 const Recipe  = require('../models/recipe-model');
 const User    = require('../models/user-model');
+const Review  = require('../models/review-model');
 
 const fileUploader = require('../config/upload-setup/cloudinary');
 
@@ -122,12 +123,60 @@ router.post('/recipes/:theRecipeId/update', fileUploader.single('imageUrl'), (re
   router.get('/recipes/:theRecipeId/view', (req,res, next)=>{
     Recipe.findById(req.params.theRecipeId)
     .then( foundRecipe => {
-        res.render('recipe-pages/uniqueRecipe', { foundRecipe })
+      console.log("======================= ", foundRecipe.likes);
+      counter = 0
+      foundRecipe.likes.forEach(oneLike => {
+        if(oneLike.like === 1) {
+          counter += 1;
+        }
+      })
+      data = {
+        foundRecipe: foundRecipe,
+        counter: counter
+      }
+        res.render('recipe-pages/uniqueRecipe', data)
       })
       .catch( err => next(err) )
     })
 
-  
+router.post('/likes/:theRecipeId', (req,res,next)=> {
+  Recipe.findByIdAndUpdate(req.params.theRecipeId)
+  .then(theRecipe => {
+    foundUser = false;
+    // console.log("the info to add to the likes ________________________", req.user._id, theRecipe)
+    if(theRecipe.likes.length > 0) {
+      theRecipe.likes.forEach(oneLike => {
+        // console.log("running the foreach loop ;;;;;;;;;;;;;;;;;;;;", oneLike, "the user id >>> ", req.user._id);
+        if(oneLike.theUser.toString() === req.user._id.toString()){
+          foundUser = true;
+          console.log("inside the first if user id found >>>>>>>>>>>>>>>>>>>>>>>>>", oneLike.theUser,  req.user._id)
+          if(oneLike.like === 1){
+            console.log("if statement that like being changed to 0 <<<<<<<<<<<<<<<<<<")
+            oneLike.like = 0
+          } else {
+            console.log("a like was found and it changes value to 1 //////////////////////");
+            oneLike.like = 1
+          }
+        }
+      })
+    }
+    if(!foundUser) {
+      // console.log("there was no like found the current user. in the else statement .....................");
+      theRecipe.likes.push({theUser: req.user._id, like: 1})
+    }
+
+    // console.log('here: ', theRecipe)
+    theRecipe.markModified("likes");
+    theRecipe.save()
+    .then(updatedRecipe => {
+      // console.log("the updated recipe to be displayed ------------ ", updatedRecipe)
+      res.redirect(`/recipes/${updatedRecipe._id}/view`)
+    })
+    .catch( err => next(err) )
+  })
+  .catch( err => next(err) )
+})
+
 
 
 function isLoggedIn(req, res, next){
