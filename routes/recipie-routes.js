@@ -149,12 +149,12 @@ router.post('/likes/:theRecipeId', (req,res,next)=> {
         // console.log("running the foreach loop ;;;;;;;;;;;;;;;;;;;;", oneLike, "the user id >>> ", req.user._id);
         if(oneLike.theUser.toString() === req.user._id.toString()){
           foundUser = true;
-          console.log("inside the first if user id found >>>>>>>>>>>>>>>>>>>>>>>>>", oneLike.theUser,  req.user._id)
+          // console.log("inside the first if user id found >>>>>>>>>>>>>>>>>>>>>>>>>", oneLike.theUser,  req.user._id)
           if(oneLike.like === 1){
-            console.log("if statement that like being changed to 0 <<<<<<<<<<<<<<<<<<")
+            // console.log("if statement that like being changed to 0 <<<<<<<<<<<<<<<<<<")
             oneLike.like = 0
           } else {
-            console.log("a like was found and it changes value to 1 //////////////////////");
+            // console.log("a like was found and it changes value to 1 //////////////////////");
             oneLike.like = 1
           }
         }
