@@ -13,7 +13,7 @@ const passportSetup= require('./config/passport/passport-setup');
 const flash        = require('connect-flash');
 
 mongoose
-  .connect('mongodb://localhost/home-chef', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
