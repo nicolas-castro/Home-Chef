@@ -25,7 +25,7 @@ router.post('/register', (req, res, next)=>{
   User.findOne({ email: userEmail })
   .then(foundUser =>{
     if(foundUser !== null){
-      req.flash('error', 'That email is already register, please use another email or login');
+      req.flash('error', 'That email is already registered, please use another email or login');
       res.redirect('login');
       return;
     }
