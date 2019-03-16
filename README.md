@@ -23,6 +23,5 @@ Requirements
   <li>Clone this repo</li>
   <li>After Cloning this repo, don't forget to install all the NPM packages. Run the below code in your terminal!</li>
 </ul>
-<pre><code>
-$ npm i
+<pre><code>$ npm i
 </code></pre>
