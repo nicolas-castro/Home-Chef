@@ -11,7 +11,7 @@ Introduction
 
 <p>Home-Chef is an app for delicious food aficionados. It allows you to upload recipes on the fly and also view other recipes. 
   You can like them, add them to your favorites or just browse around for inspiration 😉.
-  Enjoy 😋! 
+  <br>Enjoy 😋! 
 </p>
 
 
